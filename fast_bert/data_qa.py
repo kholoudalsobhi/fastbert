@@ -460,9 +460,7 @@ class BertQADataBunch(object):
         if isinstance(tokenizer, str):
             tokenizer_class = TOKENIZER_CLASSES[model_type]
             # instantiate the new tokeniser object using the tokeniser name
-            self.do_lower_case = ('uncased' in tokenizer)
-            tokenizer = tokenizer_class.from_pretrained(
-                tokenizer, do_lower_case=self.do_lower_case)
+            tokenizer = tokenizer_class.from_pretrained(tokenizer)
 
         self.tokenizer = tokenizer
         self.data_dir = data_dir
